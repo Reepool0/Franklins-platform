@@ -21,7 +21,8 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        rb.linearVelocityX = movementX * walkSpeed;
+
     }
 
     void OnJump(InputValue value)
