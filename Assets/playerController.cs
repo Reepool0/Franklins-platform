@@ -4,7 +4,13 @@ using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour
 {
+    [SerializeField]
+    float walkSpeed = 10;
 
+    float movementX = 0;
+
+    [SerializeField]
+    float jumpForce = 500;
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +26,11 @@ public class playerController : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        rb.AddForce(Vector2.up * 300);
+        rb.AddForce(Vector2.up * jumpForce);
+    }
+    void OnMove(InputValue value)
+    {
+      movementX = value.Get<Vector2>().x;
+
     }
 }
